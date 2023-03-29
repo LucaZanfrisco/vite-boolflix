@@ -4,8 +4,12 @@ Template che usa Vite e Vue in Option API
 
 Per usare il template usare:
 
+Installare i pachetti
+    
     npm install
-     
+
+Avviare il server
+
     npm run dev
 
 ---
