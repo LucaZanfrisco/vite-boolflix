@@ -11,7 +11,9 @@ export default {
 </script>
 <template lang="">
     <div>
-        
+        <label for="searchText">Cerca il nome del film</label>
+        <input type="text" name="searchText" id="searchText" v-model="store.searchName" minlength="1">
+        <button type="button" @click="$emit('search')">Cerca</button>
     </div>
 </template>
 
