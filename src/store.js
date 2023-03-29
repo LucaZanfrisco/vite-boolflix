@@ -12,6 +12,5 @@ export const store = reactive({
         series: [],
         general: [],
     },
-    flagList: [],
     searchName: '',
 })
