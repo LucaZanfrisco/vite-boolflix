@@ -1,7 +1,11 @@
 <script>
+import CardElement from './CardElement.vue'
 import { store } from '../store';
 export default {
     name: 'AppMain',
+    components:{
+        CardElement,
+    },
     data(){
         return{
             store,
@@ -36,12 +40,11 @@ export default {
     <main>
         <ul>
             <li v-for="movie in store.generalList.general">
-                <div><img :src="poster(movie)" alt=""></div>
-                <div>{{ movie.title }}</div>
-                <div>{{ movie.original_title }}</div>
-                <div><img :src="flag(movie)" :alt="flag(movie)"></div>
-                <div v-for="n in 5"><font-awesome-icon icon="fa-solid fa-star" /> {{ stars(movie) }}</div>
-                <div>------</div>
+                <CardElement :poster="poster(movie)"
+                :title="movie.title"
+                :original_title="movie.original_title"
+                :flag="flag(movie)"
+                :stars="stars(movie)"></CardElement>
             </li>
         </ul>
     </main>
