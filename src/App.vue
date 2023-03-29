@@ -16,26 +16,55 @@
     },
     methods:{
       search(){
-        this.store.generalList.movie = []
-        axios.get(store.confing.apiMovie,{
-        params: {
-          api_key: store.confing.apiKey,
-          query: store.searchName,
+        if(store.searchName !== ''){
+          store.generalList.general = [];
+          store.generalList.series = [];
+          store.generalList.movie = [];
+          axios.get(store.config.apiMovie,{
+          params: {
+            api_key: store.config.apiKey,
+            query: store.searchName,
+          }
+        }).then((response) => {
+          response.data.results.forEach((element) => {
+            const {id, original_language,original_title,title,vote_average} = element;
+            const movie = {
+              id,
+              original_language,
+              original_title,
+              title,
+              vote_average
+            }
+            store.generalList.movie.push(movie);
+            store.generalList.general.push(movie)
+          });
+        })
+        axios.get(store.config.apiSeries,{
+          params:{
+            api_key: store.config.apiKey,
+            query: store.searchName,
+          }
+        }).then((response) => {
+          response.data.results.forEach((element) => {
+            const { id, original_language,original_name,name,vote_average} = element;
+            const series = {
+              id,
+              original_language,
+              original_title: original_name,
+              title: name,
+              vote_average
+            }
+            store.generalList.series.push(series);
+            store.generalList.general.push(series);
+          });
+        })
+        console.log(store.generalList.series);
+        console.log(store.generalList.movie)
+        console.log(store.generalList.general);
+        }else{
+          store.generalList.movie = [];
+          store.generalList.general = [];
         }
-      }).then((response) => {
-        console.log(response.data);
-        response.data.results.forEach((element) => {
-          const {id, original_language,original_title,title,vote_average} = element
-          this.store.generalList.movie.push({
-            id,
-            original_language,
-            original_title,
-            title,
-            vote_average
-          })
-        });
-        console.log(this.store.generalList.movie)
-      })
       }
     },
     created(){
