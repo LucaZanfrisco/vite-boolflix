@@ -1,6 +1,6 @@
 @use './_partial/variables';
 @use './_partial/mixin';
-
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
 // Reset
 *{
     margin: 0;
