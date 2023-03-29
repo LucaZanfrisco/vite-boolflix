@@ -22,6 +22,9 @@ export default {
             }else{
                 return `${store.config.apiFlag}/${movie.original_language.toUpperCase()}/flat/16.png`
             }
+        },
+        poster(movie){
+            return `${store.config.apiImage}${movie.poster_path}`
         }
     }
 }
@@ -30,6 +33,7 @@ export default {
     <main>
         <ul>
             <li v-for="movie in store.generalList.general">
+                <div><img :src="poster(movie)" alt=""></div>
                 <div>{{ movie.title }}</div>
                 <div>{{ movie.original_title }}</div>
                 <div><img :src="flag(movie)" :alt="flag(movie)"></div>

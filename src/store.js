@@ -6,6 +6,7 @@ export const store = reactive({
         apiMovie: 'https://api.themoviedb.org/3/search/movie',
         apiSeries: 'https://api.themoviedb.org/3/search/tv',
         apiFlag : 'https://flagsapi.com',
+        apiImage: 'https://image.tmdb.org/t/p/w342'
     },
     generalList: {
         movie: [],
