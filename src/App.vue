@@ -24,7 +24,6 @@
           store.generalList.general = [];
           store.generalList.series = [];
           store.generalList.movie = [];
-           d
           //  Chiama all'API per i film
           axios.get(store.config.apiMovie,{
           params: {
@@ -74,7 +73,7 @@
           });
         })
         // ------------
-        
+
         // Svuotamento delle lista al cerca vuoto
         }else{
           store.generalList.movie = [];
@@ -83,6 +82,7 @@
       }
     },
     created(){
+      // Chiamata della ricerca alla creazione dell'istanza
       this.search();
     }
   }
