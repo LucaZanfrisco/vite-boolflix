@@ -31,7 +31,7 @@ export default {
             return `${store.config.apiImage}${movie.poster_path}`;
         },
         stars(movie){
-            return Math.ceil(movie.vote_average / 5); 
+            return Math.ceil(movie.vote_average / 2); 
         }
     },
 }

@@ -16,7 +16,14 @@ export default {
         <div>{{ title }}</div>
         <div>{{ original_title }}</div>
         <div><img :src="flag" :alt="flag"></div>
-        <div v-for="n in 5"><font-awesome-icon icon="fa-solid fa-star" /> {{ stars }}</div>
+        <div >
+            <font-awesome-icon icon="fa-solid fa-star" class="vote" v-for="n in stars"/>
+            <font-awesome-icon icon="fa-solid fa-star" v-for="n in 5-stars"/>
+        </div>
     </div>
 </template>
-<style lang="scss"></style>
+<style lang="scss">
+.vote{
+    color: gold;
+}
+</style>

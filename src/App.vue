@@ -24,6 +24,8 @@
           params: {
             api_key: store.config.apiKey,
             query: store.searchName,
+            include_adult: false,
+            language: 'it-IT'
           }
         }).then((response) => {
           response.data.results.forEach((element) => {
@@ -44,6 +46,8 @@
           params:{
             api_key: store.config.apiKey,
             query: store.searchName,
+            include_adult: false,
+            language: 'it-IT'
           }
         }).then((response) => {
           response.data.results.forEach((element) => {

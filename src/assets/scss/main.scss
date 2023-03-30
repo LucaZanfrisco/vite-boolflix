@@ -1,5 +1,5 @@
-@use './_partial/variables';
-@use './_partial/mixin';
+@use './_partial/variables' as *;
+@use './_partial/mixin' as *;
 @import "../../../node_modules/bootstrap/scss/bootstrap.scss";
 // Reset
 *{
@@ -8,3 +8,11 @@
     box-sizing: border-box;
 }
 // -------
+// Common
+body{
+    background-color: $primary-color;
+    color: white;
+}
+ul{
+    list-style: none;
+}
