@@ -12,5 +12,6 @@ library.add(faStar,faBars);
 import './assets/scss/main.scss';
 // -----
 
+// Instanza App di VUE
 import App from './App.vue'
 createApp(App).component('font-awesome-icon', FontAwesomeIcon).mount('#app')

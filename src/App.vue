@@ -3,6 +3,7 @@
   import { store } from './store';
   import AppHeader from './components/AppHeader.vue';
   import AppMain from './components/AppMain.vue';
+
   export default {
     name: 'App',
     components:{
@@ -15,11 +16,16 @@
       }
     },
     methods:{
+      // Metodo che chiama l'API al pulsante Cerca
       search(){
+        // Controllo se l'input di testo non è vuoto
         if(store.searchName !== ''){
+          // Svuotamento di tutte le liste
           store.generalList.general = [];
           store.generalList.series = [];
           store.generalList.movie = [];
+           d
+          //  Chiama all'API per i film
           axios.get(store.config.apiMovie,{
           params: {
             api_key: store.config.apiKey,
@@ -42,6 +48,9 @@
             store.generalList.general.push(movie)
           });
         })
+        // -------------------
+        
+        // Chiamata all'API per le serie 
         axios.get(store.config.apiSeries,{
           params:{
             api_key: store.config.apiKey,
@@ -64,9 +73,9 @@
             store.generalList.general.push(series);
           });
         })
-        console.log(store.generalList.series);
-        console.log(store.generalList.movie)
-        console.log(store.generalList.general);
+        // ------------
+        
+        // Svuotamento delle lista al cerca vuoto
         }else{
           store.generalList.movie = [];
           store.generalList.general = [];
