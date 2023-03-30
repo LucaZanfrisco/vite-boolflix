@@ -13,18 +13,19 @@ export default {
     },
     methods:{
         flag(movie){
-            if(movie.original_language === 'en'){
-                return `${store.config.apiFlag}/US/flat/16.png`;
-            }else if(movie.original_language === 'ja'){
-                return `${store.config.apiFlag}/JP/flat/16.png`;
-            }else if(movie.original_language === 'ko'){
-                return `${store.config.apiFlag}/KR/flat/16.png`;
-            }else if(movie.original_language === 'zh'){
-                return `${store.config.apiFlag}/CN/flat/16.png`;    
-            }else if(movie.original_language === 'da'){
-                return `${store.config.apiFlag}/DK/flat/16.png`;
-            }else{
-                return `${store.config.apiFlag}/${movie.original_language.toUpperCase()}/flat/16.png`;
+            switch(movie.original_language){
+                case 'en':
+                    return `${store.config.apiFlag}/US/flat/16.png`;
+                case 'ja':
+                    return `${store.config.apiFlag}/JP/flat/16.png`;
+                case 'ko':
+                    return `${store.config.apiFlag}/KR/flat/16.png`;
+                case 'zh':
+                    return `${store.config.apiFlag}/CN/flat/16.png`;    
+                case 'da':
+                    return `${store.config.apiFlag}/DK/flat/16.png`;
+                default:
+                    return `${store.config.apiFlag}/${movie.original_language.toUpperCase()}/flat/16.png`;
             }
         },
         poster(movie){
