@@ -49,9 +49,7 @@ export default {
           </div>
         </div>
       </div>
-
     </div>
-    <!-- <div>Film/Serie Trovati: {{ store.generalList.general.length }}</div> -->
   </header>
 </template>
 

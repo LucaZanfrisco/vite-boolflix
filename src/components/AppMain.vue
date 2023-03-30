@@ -38,14 +38,17 @@ export default {
 }
 </script>
 <template lang="">
-    <main>
-        <ul>
-            <li v-for="movie in store.generalList.general">
+    <main class="container mt-5">
+        <div class="text-center mb-3 fs-4 fw-bold" v-if="store.generalList.general.length !== 0">Film/Serie Trovati: {{ store.generalList.general.length }}</div>
+        <div v-else class="text-center mb-3 fs-4 fw-bold">Nessun Film/Serie trovato</div>
+        <ul class="row justify-content-center">
+            <li v-for="movie in store.generalList.general" class="col-6 col-md-4 col-lg-3 col-xxl-2 my-3">
                 <CardElement :poster="poster(movie)"
                 :title="movie.title"
                 :original_title="movie.original_title"
                 :flag="flag(movie)"
-                :stars="stars(movie)"></CardElement>
+                :stars="stars(movie)"
+                :language="movie.original_language"></CardElement>
             </li>
         </ul>
     </main>
