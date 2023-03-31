@@ -7,6 +7,9 @@ export default {
     components:{
         CardElement,
     },
+    props:{
+        result: Array,
+    },
     data(){
         return{
             store,
@@ -26,6 +29,8 @@ export default {
                     return `${store.config.apiFlag}/CN/flat/16.png`;    
                 case 'da':
                     return `${store.config.apiFlag}/DK/flat/16.png`;
+                case 'hi':
+                    return `${store.config.apiFlag}/IN/flat/16.png`
                 default:
                     return `${store.config.apiFlag}/${movie.original_language.toUpperCase()}/flat/16.png`;
             }
@@ -48,12 +53,12 @@ export default {
 </script>
 <template lang="">
     <main class="container mt-5">
-        <div class="text-center mb-3 fs-4 fw-bold" v-if="store.generalList.general.length !== 0">Film/Serie Trovati: {{ store.generalList.general.length }}</div>
+        <div class="text-center mb-3 fs-4 fw-bold" v-if="result.length !== 0"> Film/Serie Trovati: {{ result.length }}</div>
         <div v-else class="text-center mb-3 fs-4 fw-bold">Nessun Film/Serie trovato</div>
         <!-- Lista delle card -->
         <ul class="row justify-content-center">
             <!-- Elemento della lista che si ripete in base alla lunghezza della lista general -->
-            <li v-for="movie in store.generalList.general" class="col-6 col-md-4 col-lg-3 col-xxl-2 my-3">
+            <li v-for="movie in result" class="col-6 col-md-4 col-lg-3 col-xxl-2 my-3">
                 <!-- Componente carta dove vengono passati i dati tramite props -->
                 <CardElement :poster="poster(movie)"
                 :title="movie.title"

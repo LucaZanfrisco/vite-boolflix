@@ -14,11 +14,14 @@ export default {
 </script>
 <template>
     <div class="poster">
+        <!-- Elemento che viene mostrato nel caso in cui il poster non fosse disponibile -->
         <div v-if="poster === null" class="fallback-poster">
             <div class="fs-1 text-center"><font-awesome-icon icon="fa-solid fa-circle-exclamation" /></div>
             <div class="text-center">Poster Non Disponibile</div>
         </div>
+        <!-- Immagine di copertina -->
         <img v-else :src="poster" :alt="title" class="img-fluid border border border-opacity-25 border-light poster-path">
+        <!-- Informazioni riguardanti film o serie tv che compaiono all'hover sul poster -->
         <div class="info">
             <div v-if="title == original_title" class="fs-4">{{ title }}</div>
             <div v-else>

@@ -48,7 +48,7 @@ export default {
             </div>
             <!-- Campo di testo per la ricerca -->
             <div class="col-8 col-sm-10">
-              <input type="text" v-model="store.searchName" minlength="1" placeholder="Cerca film o serie tv"
+              <input type="text" v-model="store.apiParams.query" minlength="1" placeholder="Cerca film o serie tv"
               class="form-control" @keyup.enter="$emit('search')" />
             </div>
             <!-- Pulsante che effettua un EMIT per andare ad attivare la chiamata all'API -->
