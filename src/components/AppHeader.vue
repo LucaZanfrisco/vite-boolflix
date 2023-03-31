@@ -49,11 +49,11 @@ export default {
             <!-- Campo di testo per la ricerca -->
             <div class="col-8 col-sm-10">
               <input type="text" v-model="store.searchName" minlength="1" placeholder="Cerca film o serie tv"
-              class="form-control" />
+              class="form-control" @keyup.enter="$emit('search')" />
             </div>
             <!-- Pulsante che effettua un EMIT per andare ad attivare la chiamata all'API -->
             <div class="col-2 col-sm-1">
-              <button type="button" @click="$emit('search')" class="btn btn-danger">Cerca</button>
+              <button type="button" @click="$emit('search')"  class="btn btn-danger">Cerca</button>
             </div>
           </div>
         </div>
