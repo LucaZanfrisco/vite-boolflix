@@ -34,14 +34,15 @@
           }
         }).then((response) => {
           response.data.results.forEach((element) => {
-            const {id, original_language,original_title,title,vote_average,poster_path} = element;
+            const {id, original_language,original_title,title,vote_average,poster_path,overview} = element;
             const movie = {
               id,
               original_language,
               original_title,
               title,
               vote_average,
-              poster_path
+              poster_path,
+              overview
             }
             store.generalList.movie.push(movie);
             store.generalList.general.push(movie)
@@ -59,14 +60,15 @@
           }
         }).then((response) => {
           response.data.results.forEach((element) => {
-            const { id, original_language,original_name,name,vote_average,poster_path} = element;
+            const { id, original_language,original_name,name,vote_average,poster_path,overview} = element;
             const series = {
               id,
               original_language,
               original_title: original_name,
               title: name,
               vote_average,
-              poster_path
+              poster_path,
+              overview
             }
             store.generalList.series.push(series);
             store.generalList.general.push(series);

@@ -32,7 +32,12 @@ export default {
         },
         // Funzione che da come risultato l'immagine di copertina
         poster(movie){
-            return `${store.config.apiImage}${movie.poster_path}`;
+            if(movie.poster_path !== null){
+              return `${store.config.apiImage}${movie.poster_path}`;  
+            }else{
+                return null
+            }
+            
         },
         // Funzione che converte il voto in stelle
         stars(movie){
@@ -55,7 +60,8 @@ export default {
                 :original_title="movie.original_title"
                 :flag="flag(movie)"
                 :stars="stars(movie)"
-                :language="movie.original_language"></CardElement>
+                :language="movie.original_language"
+                :overview="movie.overview"></CardElement>
             </li>
         </ul>
     </main>
